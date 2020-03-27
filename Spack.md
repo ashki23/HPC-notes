@@ -48,14 +48,14 @@ To learn more, review Spack Basic Usage in [here](https://spack.readthedocs.io/e
 
 ### Lmod
 [Lmod](https://www.tacc.utexas.edu/research-development/tacc-projects/lmod) is a Lua-based 
-module system that easily handles the MODULEPATH Hierarchical problem. To handel this issue, we can use Lmod to install new packages. To install and activate Lmode use (note that this may take a while):
+module system that easily handles the MODULEPATH Hierarchical problem. To handel this issue, we can use Lmod to install new packages. To install Lmode use the following (note this may take a while):
 
 ```bash
 source spack/share/spack/setup-env.sh
 spack install lmod
 ```
 
-To use Lmode to install a new package, use:
+To use Lmode to install and load a new package, use:
 ```bash
 unset MODULEPATH
 unset MODULESHOME
@@ -66,7 +66,7 @@ spack install <software_name>
 module load <software_name>
 ```
 
-Find more information in [here](https://spack-tutorial.readthedocs.io/en/latest/tutorial_modules.html). And finally, to create a Spack package, see the workflow in [here](https://spack.readthedocs.io/en/latest/workflows.html).  
+Find more information about modules in [here](https://spack-tutorial.readthedocs.io/en/latest/tutorial_modules.html) and learn the workflow to make a Spack package in [here](https://spack.readthedocs.io/en/latest/workflows.html).  
 
 ---
 Copyright 2018-2019, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
