@@ -36,7 +36,6 @@ Some other important commands are:
 - `spack list` to list all avail sofeware
 - `spack list name` to list all avail software contain that name
 - `spack info software_name` to get more information on a particular package from
-- `spack versions software_name` to see more available versions of a package
 - `spack find` to show list of all installed software by Spack
 - `spack find name` to find all installed software contain that name
 - `spack gc` use gc ("garbage collector") to uninstall all unneeded packages
