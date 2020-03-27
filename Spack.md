@@ -1,14 +1,14 @@
 # Install software with Spack
 *[Ashkan Mirzaee](https://ashki23.github.io/index.html) - June 2019*
 
-[Spack](https://spack.readthedocs.io/en/latest/) is a software/package management tool designed to support multiple versions and configurations of software on a wide variety of platforms and environments. Get spack from the [github repository](https://github.com/spack/spack):
+[Spack](https://spack.readthedocs.io/en/latest/) is a software/package management tool designed to support multiple versions and configurations of software on a wide variety of platforms and environments. Let's download and install Spack by:
 
 ```bash
 git clone https://github.com/spack/spack.git
 source spack/share/spack/setup-env.sh # Setup Spack
 ```
 
-After setup Spack, let's **install** any new software that you want by:
+Now we can easiliy **install** new softwares from Spack by:
 
 ```bash
 spack install <software_name> or <software_name@version> or <software_name@version %compiler@version> 
@@ -16,7 +16,7 @@ spack install <software_name> or <software_name@version> or <software_name@versi
 
 In general, `@version` for both softwares and compilers could be removed, Spack installs the most stable version by defualt (see `spack versions -s software_name`). You may find complete list of things that you can install by using `spack list` or online in [here](https://spack.readthedocs.io/en/latest/package_list.html). 
 
-To use the software, first we need to **load** the installed software by:
+To use the software, first we need to **load** it by:
 
 ```bash
 spack load <software_name>
@@ -24,7 +24,7 @@ spack load <software_name>
 
 Always use tab completion to complete softwares' name correctly (press tab once) or find all available names (press tab twice). 
 
-To **uninstall** a software and every package that depends on it, you may give the `--dependents` option.
+To **uninstall** a software and every package that depends on it, you may give the `--dependents` option such that:
 
 ```bash
 spack uninstall --dependents <software_name> 
@@ -32,7 +32,8 @@ spack uninstall --dependents <software_name>
 
 You may use `--force` flag to remove some packages.
 
-Some other important commands are:
+Some other important Spack commands are:
+
 - `spack list` to list all avail sofeware
 - `spack list name` to list all avail software contain that name
 - `spack info software_name` to get more information on a particular package
@@ -48,14 +49,14 @@ To learn more, review Spack Basic Usage in [here](https://spack.readthedocs.io/e
 
 ### Lmod
 [Lmod](https://www.tacc.utexas.edu/research-development/tacc-projects/lmod) is a Lua-based 
-module system that easily handles the MODULEPATH Hierarchical problem. To handel this issue, we can use Lmod to install new packages. To install Lmode use the following (note this may take a while):
+module system that easily handles the MODULEPATH Hierarchical problem. To handel this issue, we can use Lmod to install new packages. To install Lmode, use the following (note this may take a while):
 
 ```bash
 source spack/share/spack/setup-env.sh
 spack install lmod
 ```
 
-To use Lmode to install and load a new package, use:
+To use Lmode for installing and loading new packages use:
 ```bash
 unset MODULEPATH
 unset MODULESHOME
