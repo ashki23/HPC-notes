@@ -14,7 +14,7 @@ Now we can easiliy **install** new softwares from Spack by:
 spack install <software_name> or <software_name@version> or <software_name@version %compiler@version> 
 ```
 
-In general, `@version` for both softwares and compilers could be removed, Spack installs the most stable version by defualt (see `spack versions -s software_name`). You may find complete list of things that you can install by using `spack list` or online in [here](https://spack.readthedocs.io/en/latest/package_list.html). 
+In general, `@version` for both softwares and compilers could be removed, Spack installs the most stable version by default (see `spack versions -s software_name`). You may find complete list of things that you can install by using `spack list` or online in [here](https://spack.readthedocs.io/en/latest/package_list.html). 
 
 To use the software, first we need to **load** it by:
 
