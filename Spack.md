@@ -39,7 +39,7 @@ Some other important Spack commands are:
 - `spack info software_name` to get more information on a particular package
 - `spack versions -s software_name` to see all safe version of particular package
 - `spack find` to show list of all installed software by Spack
-- `spack find -lf name` to find all installed software contain that name and their dependencies and compilers
+- `spack find -dfl name` to find all installed software contain that name and their dependencies, compilers and hashes 
 - `spack location -i software_name` to find install prefix
 - `spack help` getting help
 - `spack help subcommand` print out usage information for a particular subcommand (eg. `spack help find`)
