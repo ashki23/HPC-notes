@@ -39,13 +39,12 @@ Some other important Spack commands are:
 - `spack info software_name` to get more information on a particular package
 - `spack versions -s software_name` to see all safe version of particular package
 - `spack find` to show list of all installed software by Spack
-- `spack find name` to find all installed software contain that name
+- `spack find -lf name` to find all installed software contain that name and their dependencies and compilers
 - `spack location -i software_name` to find install prefix
-- `spack gc` use gc ("garbage collector") to uninstall all unneeded packages
 - `spack help` getting help
 - `spack help subcommand` print out usage information for a particular subcommand (eg. `spack help find`)
 
-To learn more, review Spack Basic Usage in [here](https://spack.readthedocs.io/en/latest/basic_usage.html).
+You may find list of all commands in [here](https://spack.readthedocs.io/en/latest/command_index.html#spack-find). To learn more, review Spack Basic Usage in [here](https://spack.readthedocs.io/en/latest/basic_usage.html).
 
 ### Lmod
 [Lmod](https://www.tacc.utexas.edu/research-development/tacc-projects/lmod) is a Lua-based 
