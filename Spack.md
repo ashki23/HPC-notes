@@ -24,10 +24,10 @@ spack load <software_name>
 
 Always use tab completion to complete softwares' name correctly (press tab once) or find all available names (press tab twice). 
 
-To **uninstall** a software and every package that depends on it, you may give the `--dependents` option such that:
+To **uninstall** a software and every package that depends on it, you may give the `--dependents` or `-R` option such that:
 
 ```bash
-spack uninstall --dependents <software_name> 
+spack uninstall --dependents/-R <software_name> 
 ```
 
 You may use `--force` flag to remove some packages.
