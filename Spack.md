@@ -34,7 +34,7 @@ You may use `--force` flag to remove some packages.
 
 Some other important Spack commands are:
 
-- `spack list` to list all avail sofeware
+- `spack list` to list all avail software
 - `spack list name` to list all avail software contain that name
 - `spack info software_name` to get more information on a particular package
 - `spack versions -s software_name` to see all safe version of particular package
