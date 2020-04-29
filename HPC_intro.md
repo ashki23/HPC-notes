@@ -6,7 +6,7 @@ When dealing with computational problems, various resource and time limitations 
 - [Introduction to High-Performance Computing](https://hpc-carpentry.github.io/hpc-intro/)
 - [Introduction to using the shell in a High-Performance Computing context](https://hpc-carpentry.github.io/hpc-shell/)
 
-Using HPC systems often involves the use of a Shell through a command line interface which is necessary for this topic (see [here](shell.html)). 
+Using HPC systems often involves the use of a Shell through a command line interface which is necessary for this topic (see [here](https://ashki23.github.io/shell.html)). 
 
 This tutorial provides a list of basic scheduling commands, submitting jobs, methods of transferring files from local computers, and installing software on clusters.
 
