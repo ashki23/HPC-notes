@@ -1,5 +1,4 @@
 # Introduction to cloud computing
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html) - February 2020*
 
 Not many years ago around us was full of CDs, DVDs, Flash Drives and Hard Drives and it was hard to imagine life without them. But now it seems very hard to see any of those things around us, what happened then? The answer is Hard Drives moved to clouds! For free or for a small fee we had access to numerous storage somewhere outside our computers that pushed us to upload every thing that we used to download. 
 
