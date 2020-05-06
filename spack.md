@@ -1,5 +1,4 @@
 # Install software with Spack
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html) - June 2019*
 
 [Spack](https://spack.readthedocs.io/en/latest/) is a software/package management tool designed to support multiple versions and configurations of software on a wide variety of platforms and environments. Let's download and install Spack by:
 
