@@ -1,5 +1,4 @@
 # Introduction to high-performance computing (HPC)
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html) - May 2019*
 
 When dealing with computational problems, various resource and time limitations could arise difficulties and disrupt the solutions. If we have enough time and resources, we might find the answer. A supercomputer or cluster with high level of performance could help us tackle the problem. The followings are some great workshops about HPC:
 
