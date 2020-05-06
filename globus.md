@@ -1,5 +1,4 @@
 # Globus: unified access to our research data
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html) - April 2020*
 
 [Globus](https://www.globus.org) is a platform that let us to get unified access to our research data, across all systems, using any existing identity. It is very simple to start using Globus. Review [here](https://docs.globus.org/how-to/globus-connect-personal-linux/) to learn how to install and configure Globus connect personal for Linux.
 
