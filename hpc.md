@@ -286,7 +286,7 @@ cd # chnage directory on the cluster
 lcd # change directtory on the local computer
 ```
 
-Use **`put`** to upload and **`get`** to download a file.
+Use `put` to upload and `get` to download a file.
 
 ### Wget
 
