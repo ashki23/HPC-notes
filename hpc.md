@@ -247,16 +247,18 @@ on the local machine into the `remote-directory` on the remote machine.
 Some important options for `rsync` are (use `rsync -help` to see all
 options):
 
-  - `v`: verbose
-  - `h`: human-readable
-  - `z`: compression to reduce the size of data portions of the transfer
-  - `P`: to keep the partial file which should make a subsequent
-    transfer of the rest of the file much faster
+  - `-r, --recursive`: recurse into directories
+  - `-v, --verbose`: increase verbosity
+  - `-h, --human-readable`: human-readable format
+  - `-z, --compress`: compress file data during the transfer
+  - `-P, --partial --progress`: to keep partially transferred files
+    which should make a subsequent transfer of the rest of the file much
+    faster
 
 For example:
 
 ``` bash
-rsync -Pz ./home/myfiles user@remote.edu:./myproject
+rsync -rPz ./home/myfiles user@remote.edu:./myproject
 ```
 
 Will transfer files in “partial” mode from `./home/myfiles/` in the
@@ -326,7 +328,7 @@ install and update software:
     (see
     [here](https://spack.readthedocs.io/en/latest/package_list.html#gurobi)).
     To use Spack, we need to install it on a local directory (which is
-    above `cd ~`) and then use `spack` to install and load packages.
+    `cd ~` and above) and then use `spack` to install and load packages.
     Note that this way might take more time to install Spack and
     required modules, so, first make sure the second option could not
     install your requirements.
