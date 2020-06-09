@@ -58,8 +58,8 @@ To use Lmode for installing and loading new packages use:
 ```bash
 unset MODULEPATH
 unset MODULESHOME
-source $(spack location -i lmod)/lmod/lmod/init/bash
 source spack/share/spack/setup-env.sh
+source $(spack location -i lmod)/lmod/lmod/init/bash
 
 spack install <software_name>
 module load <software_name>
