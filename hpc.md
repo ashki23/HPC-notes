@@ -300,29 +300,24 @@ on the cluster.
 When we login to a cluster, as a user we only have permission to change
 user level files (home directory `cd ~` and higher). So, in this case,
 we never be able to install/update software that are located in the root
-directory (`cd /`).
-
-Note that we can find the location of software by loading a module and
-using `which` command, for example, `module load miniconda3` and then
-run `which python3`. Many clusters use
-[Spack](https://spack.readthedocs.io/en/latest/) to built required
-environments and install software but some software are not in the Spack
-inventory and should be installed manually.
+directory (`cd /`). Note that we can find the location of software by
+`module show <software-name>` command.
 
 As a cluster user, we have several ways to build our own system and
-install and update software:
+install and update our required software:
 
 1.  **Python**: If we only need several Python packages probably the
     easiest way is making a virtual environment by `venv` module in
     Python3. After that we will be able to use `pip` package manager to
     install packages.
 
-2.  **Miniconda**: Miniconda, a light version of Anaconda, let us
-    install many software including Python, R and their packages. We can
-    try `module load anaconda3` to load the module and then use `conda`
-    to create a virtual environment and install software and packages.
-    Note that if the cluster does not include `miniconda3`, then you may
-    use the third option to install it first.
+2.  **Miniconda**: It let us install many software including Python, R
+    and their packages. We can try `module load anaconda3` to load the
+    module and then use `conda` to create a virtual environment and
+    install software and packages. Note that if the cluster does not
+    include `miniconda3`, then you may use the third option to install
+    it first. Review [Virtual environments in Python](./python-env.html)
+    to learn more.
 
 3.  **Spack**: it gives more variety of software and packages to install
     (see
@@ -331,7 +326,8 @@ install and update software:
     `cd ~` and above) and then use `spack` to install and load packages.
     Note that this way might take more time to install Spack and
     required modules, so, first make sure the second option could not
-    install your requirements.
+    install your requirements. Review [Install software with
+    Spack](./spack.html) to learn more.
 
 4.  **Manually**: Still there are many software that are not available
     through Conda or Spack. We should follow the software instruction to
