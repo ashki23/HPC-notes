@@ -20,14 +20,18 @@ This tutorial provides a list of basic scheduling commands, submitting
 jobs, methods of transferring files from local computers, and installing
 software on clusters.
 
+Related document:
+
+  - [Introduction to using clusters](./cluster.html)
+
 -----
 
 ## Scheduling jobs
 
 On an HPC system, we need a scheduler to manage how jobs running on a
 cluster. One of the most common schedulers is
-[SLURM](https://slurm.schedmd.com/). The following are some the most
-helpful SLURM commands ([quick start user
+[SLURM](https://slurm.schedmd.com/). The following are some practical
+SLURM commands ([quick start user
 guide](https://slurm.schedmd.com/quickstart.html)):
 
 ``` bash
@@ -39,10 +43,10 @@ JOB_ID=$(sbatch --parsable file.sh) # keep the JOB ID right after reading the co
 sbatch --dependency=afterok:JOB_ID file.sh # submit a job file after finishing other jobs
 sbatch --dependency=singleton # submit a job after ending a job with a same name 
 sacct # displays accounting data for all jobs and job steps in the SLURM job accounting log
-squeue -u <username> # check on a user's job status
-squeue -u username --start # show estimation time to start pending jobs
+squeue -u <userid> # check on a user's job status
+squeue -u <userid> --start # show estimation time to start pending jobs
 scancel JOBID # cancel the job with JOBID
-scancel -u <username> # cancel all the user jobs
+scancel -u <useride> # cancel all the user jobs
 ```
 
 To see more details about these commands use `<command> --help`.
@@ -53,16 +57,16 @@ including:
 
 ``` bash
 #!/bin/bash
-#SBATCH --nodes=1
-#SBATCH --mem=16G
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=4
-#SBATCH --partition=hpc0
-#SBATCH --account=general
-#SBATCH --time=02-05:00
-#SBATCH --job-name=NewJobName
-#SBATCH --mail-user=your@email.com
-#SBATCH --mail-type=END
+#SBATCH --nodes 1
+#SBATCH --mem 16G
+#SBATCH --ntasks 1
+#SBATCH --cpus-per-task 4
+#SBATCH --partition hpc0
+#SBATCH --account general
+#SBATCH --time 02-05:00
+#SBATCH --job-name NewJobName
+#SBATCH --mail-user your@email.com
+#SBATCH --mail-type END
 
 echo 'This script is running on:'
 hostname
@@ -134,8 +138,8 @@ Then use `nano job-test.sh` to make the job file by:
 ``` bash
 #!/bin/bash
 
-#SBATCH --mem=1G
-#SBATCH --job-name=Test1
+#SBATCH --mem 1G
+#SBATCH --job-name Test1
 
 echo === $(date)
 echo $SLURM_JOB_ID
@@ -157,8 +161,8 @@ For instance, let’s create another job called `job-test-2.sh`:
 ``` bash
 #!/bin/bash
 
-#SBATCH --mem=1G
-#SBATCH --job-name=Test2
+#SBATCH --mem 1G
+#SBATCH --job-name Test2
 
 echo === $(date)
 echo $SLURM_JOB_ID
@@ -172,8 +176,8 @@ and `job-test-2.sh`:
 ``` bash
 #!/bin/bash
 
-#SBATCH --mem=1G
-#SBATCH --job-name=Dependency
+#SBATCH --mem 1G
+#SBATCH --job-name Dependency
 
 echo === $(date)
 JID=$(sbatch --parsable job-test.sh)

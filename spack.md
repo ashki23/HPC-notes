@@ -11,6 +11,8 @@ of HPC developers.
 
 To learn more about Sapck review:
 
+  - [Tutorial:
+    Spack 101](https://spack-tutorial.readthedocs.io/en/latest/)
   - [Spack Basic
     Usage](https://spack.readthedocs.io/en/latest/basic_usage.html)
 
@@ -49,13 +51,16 @@ In general, `@version` for both software and compiler could be removed.
 Spack installs the most stable version by default (see `spack versions
 -s <software-name>`). You may find complete list of software that you
 can install by using `spack list` or in Spack online [package
-list](https://spack.readthedocs.io/en/latest/package_list.html).
+list](https://spack.readthedocs.io/en/latest/package_list.html). Also.
+we can use `--verbose` option to see more details during the
+installation, `--no-cache` to install a package directly from the
+source, and `--overwrite` to overwrite an installed package.
 
 After installation, we can find the software by:
 
 ``` bash
 spack find # to see all installed software
-spack find <software-name> # to find a software
+spack find <software-name> # to find a software (use -lfvp to see hashes, flags, variants and pathes)
 spack location -i <software-name> # to find location of a software 
 ```
 
@@ -86,13 +91,13 @@ Reference](https://spack.readthedocs.io/en/latest/command_index.html).
 ## Specs & dependencies
 
 In general, we can specify versions by `@`, compilers by `%`,
-dependencies by `^` for install/uninstall commands. The following
-example from [Spack Basic
+dependencies by `^` and hashes by `/` for install/uninstall commands.
+The following example from [Spack Basic
 Usage](https://spack.readthedocs.io/en/latest/basic_usage.html?highlight=cflags#specs-dependencies)
 show these specs:
 
 ``` bash
-mpileaks @1.2:1.4 %gcc@4.7.5 +debug -qt arch=bgq_os ^callpath @1.1 %gcc@4.7.2
+mpileaks@1.2:1.4 %gcc@4.7.5 +debug ~qt arch=bgq_os ^callpath@1.1 %gcc@4.7.2
 ```
 
 If provided to `spack install`, this will install the `mpileaks` library
@@ -120,10 +125,17 @@ spack compiler add <compiler-name@ver> # for example $(spack location -i gcc@10.
 spack compiler remove <compiler-name@ver>
 ```
 
-During the installation we can add specific compiler’s options. Valid
-flag names are `cflags`, `cxxflags`, `fflags`, `cppflags`, `ldflags`,
-and `ldlibs`. For instance, `spack install libdwarf cppflags="-g"` will
-install `libdwarf` with the `-g` flag injected into their compile line.
+Also, we can directly modify `compilers.yaml` file by:
+
+``` bash
+spack config edit compilers
+```
+
+Moreover, we can add specific compiler’s options during the
+installation. Valid flag names are `cflags`, `cxxflags`, `fflags`,
+`cppflags`, `ldflags`, and `ldlibs`. For instance, `spack install
+libdwarf cppflags="-g"` will install `libdwarf` with the `-g` flag
+injected into their compile line.
 
 ## Architecture specifiers
 
@@ -141,11 +153,12 @@ and `target=haswell`.
 ## Create and edit package files
 
 If the package that you are looking for is not among Spack repo list,
-you can create a package file in Python and [add to the Spack
+you can create a package file in Python by `spack create <tarball link>`
+and [add to the Spack
 reop](https://spack.readthedocs.io/en/latest/contribution_guide.html).
-Review [Spack packaging
-guide](https://spack.readthedocs.io/en/latest/packaging_guide.html) to
-learn how to create a package.
+Review [Package Creation
+Tutorial](https://spack-tutorial.readthedocs.io/en/latest/tutorial_packaging.html)
+to learn how to build and debug a package.
 
 If the package that you are looking for is outdated or has wrong
 dependencies, you can modify the package Python file by:
@@ -172,6 +185,16 @@ class Octopus(Package):
 
 In the above example, we have added Octopus version 10 to the package
 file.
+
+Also, we can open the packages configuration file and update preferences
+by:
+
+``` bash
+spack config edit packages
+```
+
+**Note:** if you prefere to use Emacs to edit Spack config files, use
+`export EDITOR=emacs` to make Emacs the default text editor.
 
 ## Lmod
 
