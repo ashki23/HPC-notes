@@ -68,6 +68,7 @@ And we can load the software:
 
 ``` bash
 spack load <software_name>
+spack find --loaded # see what is loaded
 ```
 
 To uninstall a software we can use:
@@ -213,8 +214,8 @@ To use Lmode for installing and loading new packages use:
 ``` bash
 unset MODULEPATH
 unset MODULESHOME
-source spack/share/spack/setup-env.sh
 source $(spack location -i lmod)/lmod/lmod/init/bash
+source spack/share/spack/setup-env.sh
 
 spack install <software-name>
 module load <software-name>
