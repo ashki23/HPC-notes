@@ -13,8 +13,7 @@ In general we need to configure Globus and the endpoint such that:
 ## Instal globus
 wget https://downloads.globus.org/globus-connect-personal/linux/stable/globusconnectpersonal-latest.tgz
 tar -xzvf globusconnectpersonal-latest.tgz
-rm globusconnectpersonal-latest.tgz
-cd globusconnectpersonal...
+cd globusconnectpersonal*
 
 ## Start 
 ./globusconnectpersonal -setup <paste the setup (GCP) key>
