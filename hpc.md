@@ -14,7 +14,7 @@ tackle the problem. The followings are some great workshops about HPC:
 
 Using HPC systems often involves the use of a Shell through a command
 line interface which is necessary for this topic (see
-[here](shell.html)).
+[here](https://ashki23.github.io/shell.html)).
 
 This tutorial provides a list of basic scheduling commands, submitting
 jobs, methods of transferring files from local computers, and installing
@@ -22,7 +22,7 @@ software on clusters.
 
 Related document:
 
-  - [Introduction to using clusters](./cluster.html)
+  - [Introduction to using clusters](cluster.html)
 
 -----
 
