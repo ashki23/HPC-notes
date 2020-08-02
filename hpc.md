@@ -22,7 +22,8 @@ software on clusters.
 
 Related document:
 
-  - [Introduction to using clusters](cluster.html)
+  - [Introduction to using
+    clusters](https://ashki23.github.io/cluster.html)
 
 -----
 
