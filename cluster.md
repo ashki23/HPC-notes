@@ -1,7 +1,7 @@
 # Introduction to using clusters
 *[Ashkan Mirzaee](https://ashki23.github.io/index.html)*
 
-This page discribes several ways to manage resources and also submit and
+This page describes several ways to manage resources and also submit and
 monitor jobs in a high performance computing (HPC) environment.
 
   - Training presentation
@@ -80,7 +80,7 @@ for that purpose:
 
 ``` bash
 sinfo –s # summary of cluster resources (-s --summarize)
-sinfo -p <partitoion-name> -o %n,%C,%m,%z # compute info of nodes in a partition (-o --format)
+sinfo -p <partition-name> -o %n,%C,%m,%z # compute info of nodes in a partition (-o --format)
 sinfo -p Gpu -o %n,%C,%m,%G # GPUs information in Gpu partition (-p --partition)
 sjstat –c # show computing resources per node
 scontrol show partition <partition-name> # partition information
@@ -108,14 +108,14 @@ commands:
 
 For instance above `sinfo -s` shows partition hpc3 has 4 idle nodes
 (free) and users can run jobs up 2 days. And, `sjstat -c` shows that
-partion hpc3 has 4 nodes with 24 cpus and 122GB of memory on each node.
-In general, `CPUS/NODES(A/I/O/T)` count of CPUs/nodes in the form
+partition hpc3 has 4 nodes with 24 cpus and 122GB of memory on each
+node. In general, `CPUS/NODES(A/I/O/T)` count of CPUs/nodes in the form
 “available/idle/other/total” and `S:C:T` counts number of “sockets,
 cores, threads”.
 
 ## Users Information
 
-Users can use Slurm to find more informations about their accounts,
+Users can use Slurm to find more information about their accounts,
 fairshare and quality of services (QOS) and several Unix commands to
 find their storage quotas.
 
@@ -145,7 +145,7 @@ resources through Slurm and run jobs interactively. For instance:
 ``` bash
 srun <slurm-options> <software-name/path>
 srun --pty /bin/bash # requesting a pseudo terminal of bash shell to run jobs interactively
-srun -p Interactive --pty /bin/bash # requesting a p.t. of bash shell on patition called Interactive (-p --partition)
+srun -p Interactive --pty /bin/bash # requesting a p.t. of bash shell on partition called Interactive (-p --partition)
 srun -p <partition-name> -n 4 --mem 16G --pty /bin/bash # req. 4 tasks and 16G memory (-n --ntasks)
 srun -p Gpu --gres gpu:1 -N 1 --ntasks-per-node 8 --pty /bin/bash # req. 1 GPU and 1 node for running 8 tasks on Gpu partition (-N --nodes)
 ```
@@ -242,10 +242,10 @@ scancel <jobid> # cancel jobs
 
 ## Monitor CPU and Memory
 
-**Compeleted jobs**
+**Completed jobs**
 
 We can use the following options to check how many resouces is consumed
-by a competed job.
+by a completed job.
 
 ``` bash
 sacct -j <jobid> -o User,Acc,AllocCPUS,Elaps,CPUTime,TotalCPU,AveDiskRead,AveDiskWrite,ReqMem,MaxRSS # info about CPU and virtual memory for compeleted jobs (-j --jobs)
@@ -285,7 +285,7 @@ sstat <jobid> -o AveCPU,AveDiskRead,AveDiskWrite,MaxRSS # info about CPU and mem
 ```
 
 Also, we can use `top` command to find how much CPU and memory are using
-by a submited job. To do that, we need to attach to the nodes that our
+by a submitted job. To do that, we need to attach to the nodes that our
 job is running and run `top` command.
 
 ``` bash
@@ -306,8 +306,8 @@ requested CPUs.
 
 ## Modules
 
-In order to use a software, we need to load the coresponding module
-firts. The following commands let us mange modules in our workflow:
+In order to use a software, we need to load the corresponding module
+first. The following commands let us manage modules in our workflow:
 
 ``` bash
 module avail # available modules
@@ -330,8 +330,8 @@ module load R
 R
 ```
 
-If you are looking for using a licenced software (available in cluster)
-make sure you call the licence when requesting resources. For instance
+If you are looking for using a licensed software (available in cluster)
+make sure you call the license when requesting resources. For instance
 to use MATLAB:
 
 ``` bash

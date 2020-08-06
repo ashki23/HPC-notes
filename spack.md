@@ -6,8 +6,8 @@ package manager that simplifies building, installing, customizing, and
 sharing HPC software stacks. Spack helps installing software with much
 less efforts. It is a very simple and efficient way for installing
 packages with cumbersome structures and lots of dependencies. Spack is
-an open source package manger and developing and maitaining by community
-of HPC developers.
+an open source package manger and developing and maintaining by
+community of HPC developers.
 
 To learn more about Sapck review:
 
@@ -41,7 +41,7 @@ Option `-I` or `--install-status` shows status of the software
 dependencies i.e. installed (`+`) or will be installed during the
 installation (`-`).
 
-Now let’s install a new softwares from Spack:
+Now let’s install a new software’s from Spack:
 
 ``` bash
 spack install <software_name> or <software_name@version> or <software_name@version %compiler@version> 
@@ -77,7 +77,7 @@ To uninstall a software we can use:
 spack uninstall <software_name> or <software_name@version> or <software_name@version %compiler@version>
 ```
 
-We can use `-R` or `--dependents` option to uninstall depndencies and
+We can use `-R` or `--dependents` option to uninstall dependencies and
 `--force` to force to remove.
 
 More details about Spack commands can be found by:
@@ -169,7 +169,7 @@ spack edit <software-name>
 ```
 
 To update version of the package, install the package tar file from the
-developer webpage or Github and extract the related hash number by
+developer web-page or GitHub and extract the related hash number by
 `md5sum` or `shasum -a 256` command and add version and hash number to
 the package file. For example, `spack edit octopus`:
 
@@ -194,13 +194,13 @@ by:
 spack config edit packages
 ```
 
-**Note:** if you prefere to use Emacs to edit Spack config files, use
+**Note:** if you prefer to use Emacs to edit Spack config files, use
 `export EDITOR=emacs` to make Emacs the default text editor.
 
-## Lmod
+## Environment modules
 
 [Lmod](https://www.tacc.utexas.edu/research-development/tacc-projects/lmod)
-is a Lua-based module system that easily handles the MODULEPATH
+is a Lua-based module system that easily handles the `MODULEPATH`
 Hierarchical problem. To install Lmode, use the following (note this may
 take a while):
 
@@ -221,7 +221,80 @@ spack install <software-name>
 module load <software-name>
 ```
 
-Learn more about Lmod and module files in
+Now we can use `module avail` to see list of the available (installed)
+modules.
+
+We can also, use `lomd` to manage modules by editing the module
+configuration file. Let’s open the file:
+
+``` bash
+spack config edit modules 
+```
+
+And add the following configuration from [Spack
+tutorial](https://spack-tutorial.readthedocs.io/en/latest/tutorial_modules.html#modules-tutorial)
+to the config file:
+
+``` bash
+modules:
+  enable::
+    - lmod
+  lmod:
+    core_compilers:
+      - 'gcc@7.5.0'
+    hierarchy:
+      - mpi
+      - lapack
+    hash_length: 0
+    whitelist:
+      - gcc
+    blacklist:
+      - '%gcc@3.8.0' 
+      - readline
+    all:
+      filter:
+        environment_blacklist:
+          - "C_INCLUDE_PATH"
+          - "CPLUS_INCLUDE_PATH"
+          - "LIBRARY_PATH"
+      environment:
+        set:
+          '{name}_ROOT': '{prefix}'
+    openmpi:
+      environment:
+        set:
+          SLURM_MPI_TYPE: pmi2
+          OMPI_MCA_btl_openib_warn_default_gid_prefix: '0'
+    netlib-scalapack:
+      template: 'group-restricted.lua'
+```
+
+Note that in the above example, we seleceted `gcc@7.5.0` as core
+compiler and hided `gcc@3.8.0` from the tree. Also, we supposed the
+hierarchy of installed modules are depends on `mpi` and `lapack`.
+
+To apply these changes, we need to refresh the modules tree and update
+`MODULEPATH` by:
+
+``` bash
+module purge
+spack module lmod refresh --delete-tree -y
+module unuse $HOME/spack/share/spack/modules/<os-arch>
+module use $HOME/spack/share/spack/lmod/<os-arch>/Core
+```
+
+Note that in above commands, I assumed that Spack directory is located
+on `$HOME`. You need to update path and `<os-arch>` based on the Sapck
+directory and, the operating system and architecture of your machine
+(for example `linux-ubuntu18.04-x86_64`). To keep the new module path
+for latter, you can add the following to the `.bashrc` file.
+
+``` bash
+export MODULEPATH=$HOME/spack/share/spack/lmod/<os-arch>/Core
+```
+
+Now use `module avail` to see changes. You can learn more about modules
+and Lmod in
 [here](https://spack-tutorial.readthedocs.io/en/latest/tutorial_modules.html).
 
 ---
