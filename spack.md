@@ -26,6 +26,7 @@ and dependencies. We can Clone and setup Spack by:
 
 ``` bash
 git clone https://github.com/spack/spack.git
+git checkout releases/<version> # use the most recent release e.g v0.15
 source spack/share/spack/setup-env.sh # setup Spack
 ```
 
@@ -82,9 +83,11 @@ We can use `-R` or `--dependents` option to uninstall dependencies and
 
 More details about Spack commands can be found by:
 
-  - `spack help` getting help
-  - `spack help subcommand` print out usage information for a particular
-    subcommand (eg. `spack help find`)
+  - `spack --help` or `spack -h` getting help
+  - `spack command -h` print out usage information for a particular
+    command (eg. `spack view -h`)
+  - `spack command subcommand -h` print out usage information for a
+    particular subcommand (eg. `spack view add -h`)
 
 To see full list of commands visit Spack [Command
 Reference](https://spack.readthedocs.io/en/latest/command_index.html).
