@@ -226,6 +226,65 @@ And use `sbatch` to submit the batch file:
 sbatch jobpy.sh
 ```
 
+## Job array
+
+If you have a plan to submit large number of jobs at the same time in
+parallel, [Slurm job array](https://slurm.schedmd.com/job_array.html)
+can be very helpful. Note that in most of the parallet prgramming
+methods we submit a single script to run but in a way that each
+iterration of running the same code return different results. The
+following shows a simple example of using Slurm job array and Python to
+submit jobs in parallel. Each of these jobs get a seperate memory and
+CPU allocation to run tasks in parallel.
+
+Let’s create the following python script called `array-test.py`:
+
+``` python
+import os
+
+## Computational function
+def task_id(i):
+    host = host = os.popen("hostname").read()[:-1]
+    ps = os.popen("cat /proc/self/stat | awk '{print $39}'").read()[:-1]
+    return "Task ID: %s, Hostanem: %s, CPU ID: %s" % (i, host, ps)
+
+## Iterate to run the computational function
+for t in [int(os.getenv('SLURM_ARRAY_TASK_ID'))]:
+    print(task_id(t))
+```
+
+The following is batch file called `array-job.sh`:
+
+``` bash
+#!/usr/bin/bash
+
+#SBATCH --partition hpc3
+#SBATCH --job-name array
+#SBATCH --array 1-9
+#SBATCH --output output-%A_%a.out
+
+python3 ./array-test.py
+```
+
+You can submit the batch job by:
+
+``` bash
+sbatch array-job.sh
+```
+
+The output is:
+
+    [user@cluster-login-node907 hpc-intro]$ cat output-*
+    Task ID: 1, Hostanem: cluster-hpc3-node908, CPU ID: 0
+    Task ID: 2, Hostanem: cluster-hpc3-node908, CPU ID: 2
+    Task ID: 3, Hostanem: cluster-hpc3-node908, CPU ID: 4
+    Task ID: 4, Hostanem: cluster-hpc3-node908, CPU ID: 6
+    Task ID: 5, Hostanem: cluster-hpc3-node908, CPU ID: 8
+    Task ID: 6, Hostanem: cluster-hpc3-node908, CPU ID: 10
+    Task ID: 7, Hostanem: cluster-hpc3-node908, CPU ID: 12
+    Task ID: 8, Hostanem: cluster-hpc3-node908, CPU ID: 14
+    Task ID: 9, Hostanem: cluster-hpc3-node908, CPU ID: 16
+
 ## Monitoring Jobs
 
 The following Slurm commands can be used to monitor jobs:
