@@ -57,7 +57,7 @@ clusters. As a cluster workload manager, Slurm has three key functions.
     of pending work (from [Slurm
     overview](https://slurm.schedmd.com/overview.html))
 
-## Login Node
+## Login node
 
 Users connect to clusters through the login nodes.
 
@@ -72,7 +72,7 @@ Users connect to clusters through the login nodes.
 All jobs must be run using Slurm submitting tools to prevent running on
 the login node.
 
-## Cluster Information
+## Cluster information
 
 Slurm is a resource management system and has many tools to find
 available resources in the cluster. Following are set of Slurm commands
@@ -113,7 +113,7 @@ node. In general, `CPUS/NODES(A/I/O/T)` count of CPUs/nodes in the form
 “available/idle/other/total” and `S:C:T` counts number of “sockets,
 cores, threads”.
 
-## Users Information
+## Users information
 
 Users can use Slurm to find more information about their accounts,
 fairshare and quality of services (QOS) and several Unix commands to
@@ -126,7 +126,7 @@ groups # show your groups
 df -h /home/$USER home # storage quota (-h --human-readable)
 ```
 
-## Job Submission
+## Job submission
 
 All jobs must be run using `srun` or `sbatch` to prevent running on the
 Cluster login node. In general, users can request resources and run
@@ -285,7 +285,7 @@ The output is:
     Task ID: 8, Hostanem: cluster-hpc3-node908, CPU ID: 14
     Task ID: 9, Hostanem: cluster-hpc3-node908, CPU ID: 16
 
-## Monitoring Jobs
+## Monitoring jobs
 
 The following Slurm commands can be used to monitor jobs:
 
@@ -299,7 +299,7 @@ squeue -u <username> --start # show estimation time to start pending jobs
 scancel <jobid> # cancel jobs
 ```
 
-## Monitor CPU and Memory
+## Monitor CPU and memory
 
 **Completed jobs**
 
@@ -401,7 +401,7 @@ matlab -nodisplay
 
 -----
 
-## More Resources
+## More resources
 
   - [RCSS Documentation](http://docs.rnet.missouri.edu)
   - [XSEDE Training](https://www.xsede.org/for-users/training)
