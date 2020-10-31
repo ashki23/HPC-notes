@@ -21,11 +21,11 @@ This document shows how to install Vagrant and create virtual machines
 [Download](https://www.vagrantup.com/downloads) Vigrant and unzip the
 file in the location the you want i.e. `/home` or `/opt`. To use
 Vagrant, we need [VirtualBox](https://www.virtualbox.org/) to be
-installed first. In Linux (Ubuntu) terminal you can use:
+installed first. In Linux (Ubuntu) terminal we can use:
 
 ``` bash
 sudo apt install virtualbox
-https://releases.hashicorp.com/vagrant/2.2.10/vagrant_2.2.10_linux_amd64.zip
+wget https://releases.hashicorp.com/vagrant/2.2.10/vagrant_2.2.10_linux_amd64.zip
 unzip vagrant_*_linux_amd64.zip -d ~/vagrant # we used home directory here
 echo "alias vagrant='~/vagrant/vagrant'" >> ~/.bashrc # add vagrant command to terminal
 ```
