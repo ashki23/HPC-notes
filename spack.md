@@ -240,7 +240,7 @@ to the config file:
 
 ``` bash
 modules:
-  enable::
+  enable:
     - lmod
   lmod:
     core_compilers:
@@ -299,6 +299,10 @@ export MODULEPATH=$HOME/spack/share/spack/lmod/<os-arch>/Core
 Now use `module avail` to see changes. You can learn more about modules
 and Lmod in
 [here](https://spack-tutorial.readthedocs.io/en/latest/tutorial_modules.html).
+
+To learn more about management and projection of modulefile, review
+[module-projection](https://github.com/ashki23/module-projection)
+repository.
 
 ---
 
