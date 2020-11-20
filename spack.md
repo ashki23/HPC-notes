@@ -75,7 +75,9 @@ spack find --loaded # see what is loaded
 To uninstall a software we can use:
 
 ``` bash
-spack uninstall <software_name> or <software_name@version> or <software_name@version %compiler@version>
+spack uninstall <software_name@version> or <software_name@version %compiler@version>
+spack uninstall --all arch=<arch-name> # uninstall by architecture
+spack uninstall --all %<compiler@version> # uninstall by compiler
 ```
 
 We can use `-R` or `--dependents` option to uninstall dependencies and
@@ -84,10 +86,10 @@ We can use `-R` or `--dependents` option to uninstall dependencies and
 More details about Spack commands can be found by:
 
   - `spack --help` or `spack -h` getting help
-  - `spack command -h` print out usage information for a particular
-    command (eg. `spack view -h`)
-  - `spack command subcommand -h` print out usage information for a
-    particular subcommand (eg. `spack view add -h`)
+  - `spack command -h` print information for a particular command (eg.
+    `spack view -h`)
+  - `spack command subcommand -h` print information for a particular
+    subcommand (eg. `spack view add -h`)
 
 To see full list of commands visit Spack [Command
 Reference](https://spack.readthedocs.io/en/latest/command_index.html).
