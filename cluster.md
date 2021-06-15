@@ -187,7 +187,7 @@ $SLURM_SUBMIT_DIR
 For example let’s consider the following Python code, called `test.py`:
 
 ``` python
-#!/usr/bin/python3
+#!/usr/bin/env python3
 import os
 
 os.system("""
@@ -226,34 +226,47 @@ And use `sbatch` to submit the batch file:
 sbatch jobpy.sh
 ```
 
-## Job array
+## Job Arrays
 
 If you have a plan to submit large number of jobs at the same time in
 parallel, [Slurm job array](https://slurm.schedmd.com/job_array.html)
-can be very helpful. Note that in most of the parallet prgramming
+can be very helpful. Note that in most of the parallel programming
 methods we submit a single script to run but in a way that each
-iterration of running the same code return different results. The
-following shows a simple example of using Slurm job array and Python to
-submit jobs in parallel. Each of these jobs get a seperate memory and
-CPU allocation to run tasks in parallel.
+iteration of running the same code return different results.
 
-Let’s create the following python script called `array-test.py`:
+Job arrays use the following environment variables:
+
+  - `SLURM_ARRAY_JOB_ID` keeps the first job ID of the array
+  - `SLURM_ARRAY_TASK_ID` keeps the job array index value
+  - `SLURM_ARRAY_TASK_COUNT` keeps the number of tasks in the job array
+  - `SLURM_ARRAY_TASK_MAX` keeps the highest job array index value
+  - `SLURM_ARRAY_TASK_MIN` keeps the lowest job array index value
+
+### Python example
+
+The following shows a simple example of using Slurm job array and Python
+to submit jobs in parallel. Each of these jobs get a seperate memory and
+CPU allocation to run tasks in parallel. Let’s create the following
+Python script called `array-test.py`:
 
 ``` python
+#!/usr/bin/env python3
+
 import os
 
 ## Computational function
-def task_id(i):
-    host = host = os.popen("hostname").read()[:-1]
-    ps = os.popen("cat /proc/self/stat | awk '{print $39}'").read()[:-1]
-    return "Task ID: %s, Hostanem: %s, CPU ID: %s" % (i, host, ps)
+def comp_func(i):
+    host = os.popen("hostname").read()[:-1] # find host's name
+    ps = os.popen("cat /proc/self/stat | awk '{print $39}'").read()[:-1] # find cpu's id
+    return "Task ID: %s, Hostname: %s, CPU ID: %s" % (i, host, ps)
 
 ## Iterate to run the computational function
-for t in [int(os.getenv('SLURM_ARRAY_TASK_ID'))]:
-    print(task_id(t))
+task_id = [int(os.getenv('SLURM_ARRAY_TASK_ID'))]
+for t in task_id:
+    print(comp_func(t))
 ```
 
-The following is batch file called `array-job.sh`:
+The following is a batch file called `array-job.sh`:
 
 ``` bash
 #!/usr/bin/bash
@@ -266,7 +279,7 @@ The following is batch file called `array-job.sh`:
 python3 ./array-test.py
 ```
 
-You can submit the batch job by:
+You can submit the batch file by:
 
 ``` bash
 sbatch array-job.sh
@@ -274,16 +287,68 @@ sbatch array-job.sh
 
 The output is:
 
-    [user@cluster-login-node907 hpc-intro]$ cat output-*
-    Task ID: 1, Hostanem: cluster-hpc3-node908, CPU ID: 0
-    Task ID: 2, Hostanem: cluster-hpc3-node908, CPU ID: 2
-    Task ID: 3, Hostanem: cluster-hpc3-node908, CPU ID: 4
-    Task ID: 4, Hostanem: cluster-hpc3-node908, CPU ID: 6
-    Task ID: 5, Hostanem: cluster-hpc3-node908, CPU ID: 8
-    Task ID: 6, Hostanem: cluster-hpc3-node908, CPU ID: 10
-    Task ID: 7, Hostanem: cluster-hpc3-node908, CPU ID: 12
-    Task ID: 8, Hostanem: cluster-hpc3-node908, CPU ID: 14
-    Task ID: 9, Hostanem: cluster-hpc3-node908, CPU ID: 16
+    [user@clark-r630-login-node907 hpc-intro]$ cat output-*
+    Task ID: 1, Hostname: clark-r630-hpc3-node908, CPU ID: 0
+    Task ID: 2, Hostname: clark-r630-hpc3-node908, CPU ID: 2
+    Task ID: 3, Hostname: clark-r630-hpc3-node908, CPU ID: 4
+    Task ID: 4, Hostname: clark-r630-hpc3-node908, CPU ID: 6
+    Task ID: 5, Hostname: clark-r630-hpc3-node908, CPU ID: 8
+    Task ID: 6, Hostname: clark-r630-hpc3-node908, CPU ID: 10
+    Task ID: 7, Hostname: clark-r630-hpc3-node908, CPU ID: 12
+    Task ID: 8, Hostname: clark-r630-hpc3-node908, CPU ID: 14
+    Task ID: 9, Hostname: clark-r630-hpc3-node908, CPU ID: 16
+
+### R example
+
+Let’s use job arrays to rerun the following R script (`array-test.R`)
+simultaneously with different seeds (starting point for random numbers):
+
+``` r
+#!/usr/bin/env R
+
+system("echo Date: $(date)", intern = TRUE)
+
+args = commandArgs(trailingOnly = TRUE)
+myseed = as.numeric(args[1])
+
+set.seed(myseed)
+print(runif(3))
+```
+
+The following is a batch file called `array-job-r.sh`:
+
+``` bash
+#!/usr/bin/bash
+
+#SBATCH --partition Lewis
+#SBATCH --job-name r-seed
+#SBATCH --array 1-12%4 # %4 will limit the number of simultaneously running tasks from this job array to 4
+#SBATCH --output Rout-%A_%a.out
+
+module load r
+Rscript array-test.R ${SLURM_ARRAY_TASK_ID}
+```
+
+You can submit the batch file by:
+
+``` bash
+sbatch array-job-r.sh
+```
+
+The output is:
+
+    [user@lewis4-r630-login-node675 test-array]$ cat Rout-*
+    [1] "Date: Tue Feb 16 18:21:15 CST 2021"
+    [1] 0.5074782 0.3067685 0.4269077
+    
+    [1] "Date: Tue Feb 16 18:21:15 CST 2021"
+    [1] 0.2772497942 0.0005183129 0.5106083730
+    
+    [1] "Date: Tue Feb 16 18:21:15 CST 2021"
+    [1] 0.06936092 0.81777520 0.94262173
+    
+    [1] "Date: Tue Feb 16 18:21:15 CST 2021"
+    [1] 0.7103224 0.2461373 0.3896344
 
 ## Monitoring jobs
 

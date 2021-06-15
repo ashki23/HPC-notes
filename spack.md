@@ -26,7 +26,9 @@ and dependencies. We can Clone and setup Spack by:
 
 ``` bash
 git clone https://github.com/spack/spack.git
-git checkout releases/<version> # use the most recent release e.g v0.15
+cd spack
+git fetch origin releases/latest:latest
+git checkout latest
 source spack/share/spack/setup-env.sh # setup Spack
 ```
 
@@ -75,13 +77,15 @@ spack find --loaded # see what is loaded
 To uninstall a software we can use:
 
 ``` bash
-spack uninstall <software_name@version> or <software_name@version %compiler@version>
+spack uninstall <software_name@version> or <software_name/hash>
 spack uninstall --all arch=<arch-name> # uninstall by architecture
 spack uninstall --all %<compiler@version> # uninstall by compiler
 ```
 
-We can use `-R` or `--dependents` option to uninstall dependencies and
-`--force` to force to remove.
+We can use `-R` or `--dependents` option to uninstall any packages that
+depend on that package and `-f` or `--force` to force to remove. Note
+that after uninstalling a software, using `spack gc` will uninstall
+dependencies of the software.
 
 More details about Spack commands can be found by:
 
