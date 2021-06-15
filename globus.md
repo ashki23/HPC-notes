@@ -12,7 +12,7 @@ Login at [globus.org](https://www.globus.org) - you can use your `XSEDE` account
 ## Install globus
 wget https://downloads.globus.org/globus-connect-personal/linux/stable/globusconnectpersonal-latest.tgz
 tar -xzvf globusconnectpersonal-latest.tgz
-cd globusconnectpersonal*
+cd globusconnectpersonal-3.1.5
 
 ## Setup
 ./globusconnectpersonal -setup --no-gui
