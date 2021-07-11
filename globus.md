@@ -25,6 +25,3 @@ cd globusconnectpersonal-3.1.5
 ```
 
 Note that Globus is mounting home directory by default. You may change the default path by updating `~/.globusonline/lta/config-paths`. Add a line with the absolute path that you want for globus to this file – save and close. By default it is `~/,0,1` the additional values of 0 and 1 indicate sharing path (premium feature so I used 0) and r/w (1 for writable, 0 for read-only).
-
----
-Copyright 2018-2019, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
