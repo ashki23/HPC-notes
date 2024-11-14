@@ -1,5 +1,4 @@
 # Create and manage virtual machines with Vagrant
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html)*
 
 [Vagrant](https://www.vagrantup.com/intro) is a tool for building and
 managing virtual machine environments in a single workflow. With an
@@ -7,14 +6,14 @@ easy-to-use workflow and focus on automation, Vagrant lowers development
 environment setup time, increases production parity, and provides an
 end-to-end VM management tool on your terminal.
 
-  - [Documentation](https://www.vagrantup.com/docs)
-  - [Quick
-    Start](https://learn.hashicorp.com/tutorials/vagrant/getting-started-index)
+- [Documentation](https://www.vagrantup.com/docs)
+- [Quick
+  Start](https://learn.hashicorp.com/tutorials/vagrant/getting-started-index)
 
 This document shows how to install Vagrant and create virtual machines
 (VM).
 
------
+------------------------------------------------------------------------
 
 ## Install
 
@@ -65,11 +64,11 @@ And login to the VM by:
 vagrant ssh
 ```
 
-Note that `vagrant ssh` is the same as `ssh -p <port>
-vagrant@localhost`. Where port can be found by `vagrant port` command
-and the password is “vagrant”. By default, username and password are
-“vagrant” but we can add other users with new passwords after login to
-the VM by:
+Note that `vagrant ssh` is the same as
+`ssh -p <port> vagrant@localhost`. Where port can be found by
+`vagrant port` command and the password is “vagrant”. By default,
+username and password are “vagrant” but we can add other users with new
+passwords after login to the VM by:
 
 ``` bash
 sudo adduser <new-username>
@@ -77,16 +76,17 @@ sudo adduser <new-username>
 
 We can logout by `logout` command or `Ctrl + D`. Also, we can suspend or
 resume a VM by `vagrant suspend` and `vagrand resume` commands. And we
-can stops and deletes all traces of the vagrant machine by `vagrant
-destroy` command. Finally, we can start the VM again by `vagrant up`.
+can stops and deletes all traces of the vagrant machine by
+`vagrant destroy` command. Finally, we can start the VM again by
+`vagrant up`.
 
 ## Commands
 
 Vagrant has set of commands to run and manage VMs. Use `vagrant --help`
 to see list of the common commands and their description. Each of these
-command has some subcommand that can be found by `vagrant --help
-<command>` for example `vagrant box --help` shows available subcommands
-and options for box command.
+command has some subcommand that can be found by
+`vagrant --help <command>` for example `vagrant box --help` shows
+available subcommands and options for box command.
 
 ``` bash
 vagrant init USER/NMAE # initialize a new vagrant env by creating a Vagrantfile
@@ -197,13 +197,13 @@ command.
 
 In general there are three types of Vagrant configs:
 
-  - [`config.vm`](https://www.vagrantup.com/docs/vagrantfile/machine_settings):
-    modify the configuration of the machine that Vagrant manages
-  - [`config.ssh`](https://www.vagrantup.com/docs/vagrantfile/ssh_settings):
-    relate to configuring how Vagrant will access your machine over SSH
-  - [`config.vagrant`](https://www.vagrantup.com/docs/vagrantfile/vagrant_settings):
-    modify the behavior of Vagrant itself
+- [`config.vm`](https://www.vagrantup.com/docs/vagrantfile/machine_settings):
+  modify the configuration of the machine that Vagrant manages
+- [`config.ssh`](https://www.vagrantup.com/docs/vagrantfile/ssh_settings):
+  relate to configuring how Vagrant will access your machine over SSH
+- [`config.vagrant`](https://www.vagrantup.com/docs/vagrantfile/vagrant_settings):
+  modify the behavior of Vagrant itself
 
 ---
 
-Copyright 2018-2023, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
+Copyright, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)

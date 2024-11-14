@@ -1,21 +1,20 @@
 # Introduction to using clusters
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html)*
 
 This page describes several ways to manage resources and also submit and
 monitor jobs in a high performance computing (HPC) environment.
 
-  - Training presentation
-    ([pdf](http://docs.rnet.missouri.edu/files/hpc-intro.pdf))
+- Training presentation
+  ([pdf](http://docs.rnet.missouri.edu/files/hpc-intro.pdf))
 
 **Prerequisite:** for better understanding of this course, users are
 expected to know a basic knowledge about Linux (Unix Shell) and terminal
 text editors. You can review:
 
-  - [The Unix Shell](https://ashki23.github.io/shell.html)
-  - [Software Carpentry
-    workshop](http://swcarpentry.github.io/shell-novice/)
+- [The Unix Shell](https://ashki23.github.io/shell.html)
+- [Software Carpentry
+  workshop](http://swcarpentry.github.io/shell-novice/)
 
------
+------------------------------------------------------------------------
 
 ## Clusters
 
@@ -48,14 +47,14 @@ From
 cluster management and job scheduling system for large and small Linux
 clusters. As a cluster workload manager, Slurm has three key functions.
 
-  - First, it allocates access to resources (compute nodes) to users for
-    some duration of time so they can perform work
-  - Second, it provides a framework for starting, executing, and
-    monitoring work (normally a parallel job) on the set of allocated
-    nodes
-  - Finally, it arbitrates contention for resources by managing a queue
-    of pending work (from [Slurm
-    overview](https://slurm.schedmd.com/overview.html))
+- First, it allocates access to resources (compute nodes) to users for
+  some duration of time so they can perform work
+- Second, it provides a framework for starting, executing, and
+  monitoring work (normally a parallel job) on the set of allocated
+  nodes
+- Finally, it arbitrates contention for resources by managing a queue of
+  pending work (from [Slurm
+  overview](https://slurm.schedmd.com/overview.html))
 
 ## Login node
 
@@ -64,7 +63,6 @@ Users connect to clusters through the login nodes.
 <p align="center">
 
 <img src="images/cluster-login.png" alt="Login Node" style="width: 80%; border: 0;">
-
 </p>
 
 <br />
@@ -96,7 +94,7 @@ commands:
     hpc          up 2-00:00:00          0/4/0/4  cluster-hpc1-node[908-911]
     Interact     up 2-00:00:00          0/4/0/4  cluster-hpc2-node[908-911]
     General*     up    2:00:00          0/4/0/4  cluster-hpc3-node[908-911]
-    
+
     [user@cluster-login-node ~]$ sjstat -c
     Scheduling pool data:
     -------------------------------------------------------------
@@ -136,7 +134,6 @@ following graphs shows job submission workflow:
 <p align="center">
 
 <img src="images/cluster-submit.png" alt="Job Submission" style="width: 90%; border: 0;">
-
 </p>
 
 For running jobs interactively, we can use `srun` to request required
@@ -205,7 +202,7 @@ To run the above code, we can use `srun` to run `test.py` interactively
 on a partition called Interactive such that:
 
     srun -p Interactive -n 4 --mem 8G --pty bash
-    
+
     python3 test.py
 
 Or create a batch file, called `jobpy.sh`, such that:
@@ -236,11 +233,11 @@ iteration of running the same code return different results.
 
 Job arrays use the following environment variables:
 
-  - `SLURM_ARRAY_JOB_ID` keeps the first job ID of the array
-  - `SLURM_ARRAY_TASK_ID` keeps the job array index value
-  - `SLURM_ARRAY_TASK_COUNT` keeps the number of tasks in the job array
-  - `SLURM_ARRAY_TASK_MAX` keeps the highest job array index value
-  - `SLURM_ARRAY_TASK_MIN` keeps the lowest job array index value
+- `SLURM_ARRAY_JOB_ID` keeps the first job ID of the array
+- `SLURM_ARRAY_TASK_ID` keeps the job array index value
+- `SLURM_ARRAY_TASK_COUNT` keeps the number of tasks in the job array
+- `SLURM_ARRAY_TASK_MAX` keeps the highest job array index value
+- `SLURM_ARRAY_TASK_MIN` keeps the lowest job array index value
 
 ### Python example
 
@@ -340,13 +337,13 @@ The output is:
     [user@lewis4-r630-login-node675 test-array]$ cat Rout-*
     [1] "Date: Tue Feb 16 18:21:15 CST 2021"
     [1] 0.5074782 0.3067685 0.4269077
-    
+
     [1] "Date: Tue Feb 16 18:21:15 CST 2021"
     [1] 0.2772497942 0.0005183129 0.5106083730
-    
+
     [1] "Date: Tue Feb 16 18:21:15 CST 2021"
     [1] 0.06936092 0.81777520 0.94262173
-    
+
     [1] "Date: Tue Feb 16 18:21:15 CST 2021"
     [1] 0.7103224 0.2461373 0.3896344
 
@@ -464,20 +461,20 @@ module load matlab
 matlab -nodisplay
 ```
 
------
+------------------------------------------------------------------------
 
 ## More resources
 
-  - [RCSS Documentation](http://docs.rnet.missouri.edu)
-  - [XSEDE Training](https://www.xsede.org/for-users/training)
-  - [Software Carpentry](https://software-carpentry.org/lessons/)
-  - [HPC Carpentry](https://hpc-carpentry.github.io)
-  - [Data Carpentry](https://datacarpentry.org/lessons/)
-  - [Cornell Virtual Workshop](https://cvw.cac.cornell.edu/topics)
-  - [Pittsburgh Supercomputing Center
-    (PSC)](https://www.psc.edu/resources-for-users/training/)
-  - [TACC Learning Portal](https://learn.tacc.utexas.edu/course/)
+- [RCSS Documentation](http://docs.rnet.missouri.edu)
+- [XSEDE Training](https://www.xsede.org/for-users/training)
+- [Software Carpentry](https://software-carpentry.org/lessons/)
+- [HPC Carpentry](https://hpc-carpentry.github.io)
+- [Data Carpentry](https://datacarpentry.org/lessons/)
+- [Cornell Virtual Workshop](https://cvw.cac.cornell.edu/topics)
+- [Pittsburgh Supercomputing Center
+  (PSC)](https://www.psc.edu/resources-for-users/training/)
+- [TACC Learning Portal](https://learn.tacc.utexas.edu/course/)
 
 ---
 
-Copyright 2018-2023, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
+Copyright, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)

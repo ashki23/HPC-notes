@@ -1,22 +1,21 @@
 # Introduction to cloud computing
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html)*
 
 Not many years ago around us was full of CDs, DVDs, Flash Drives and
 Hard Drives and it was hard to imagine life without them. But now it
 seems very hard to see any of those things around us, what happened
-then? The answer is Hard Drives moved to clouds\! For free or for a
-small fee we had access to numerous storage somewhere outside our
-computers that pushed us to upload every thing that we used to download.
+then? The answer is Hard Drives moved to clouds! For free or for a small
+fee we had access to numerous storage somewhere outside our computers
+that pushed us to upload every thing that we used to download.
 
 But this is not end of the story and HDDs are not the last part of our
-computers that could fly\! Now, CPUs start to move to clouds and this is
+computers that could fly! Now, CPUs start to move to clouds and this is
 beginning of the cloud computing journey. Following are some definitions
 of cloud computing:
 
 “Cloud computing is the delivery of computing services—including
 servers, storage, databases, networking, software, analytics, and
 intelligence—over the Internet (“the cloud”) to offer faster innovation,
-flexible resources, and economies of scale" (from
+flexible resources, and economies of scale” (from
 [Azure](https://azure.microsoft.com/en-us/overview/what-is-cloud-computing/)
 website).
 
@@ -31,7 +30,7 @@ In this tutorial we will learn how to create and access to a compute
 engine on [Google Cloud](https://cloud.google.com) and build a Virtual
 Machine (VM) that could be accessible from anywhere.
 
------
+------------------------------------------------------------------------
 
 ## Google Cloud
 
@@ -39,9 +38,10 @@ To begin, we need a Google Cloud account. Note that Google Cloud
 basically is not a free service but you can access some services with no
 cost. Follow the instructions in
 [here](https://cloud.google.com/compute/docs/quickstart-linux) to create
-a new compute engine (VM instance), for example `f1-micro (1 vCPU, 0.6
-GB memory, 10GB size)` can be used with no cost. There are several OS
-options, but in tutorial we will use [CentOS](https://www.centos.org).
+a new compute engine (VM instance), for example
+`f1-micro (1 vCPU, 0.6 GB memory, 10GB size)` can be used with no cost.
+There are several OS options, but in tutorial we will use
+[CentOS](https://www.centos.org).
 
 After creating the virtual machine (VM), click on the instance name and
 press edit button on the top of the page and add your SSH public key to
@@ -111,7 +111,7 @@ to select a private key file from your local workstation
 (`~/.ssh/id_rsa`) - if using macOS, press `shift+command+.` to see
 hidden files.
 
-Here we go\! now we can connect from a terminal prompt of a local
+Here we go! now we can connect from a terminal prompt of a local
 computer that has the public key, or from a Chrome browser from any
 computer. Note that if multiple users are going to connect to the
 instance, it will be better to add a [OS
@@ -196,9 +196,9 @@ Also, review a tutorial about conda in
 [here](https://ashki23.github.io/python_env.html#miniconda).
 
 **Note:** (optional) in CentOS `python` command refers to Python 2. To
-access `python3` command, we can add `alias
-python3=~/miniconda3/bin/python3` to `~\.bashrc` file. Use `source
-~/.bashrc` to apply changes.
+access `python3` command, we can add
+`alias python3=~/miniconda3/bin/python3` to `~\.bashrc` file. Use
+`source ~/.bashrc` to apply changes.
 
 To install R, we can use conda to create an R environment:
 
@@ -220,8 +220,8 @@ reboot the engine by:
 sudo reboot
 ```
 
-Now I think your VM is ready, enjoy it\!
+Now I think your VM is ready, enjoy it!
 
 ---
 
-Copyright 2018-2023, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
+Copyright, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)

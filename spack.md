@@ -1,5 +1,4 @@
 # Install software with Spack
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html)*
 
 [Spack](https://spack.readthedocs.io/en/latest/) is an open source
 package manager that simplifies building, installing, customizing, and
@@ -11,12 +10,12 @@ community of HPC developers.
 
 To learn more about Sapck review:
 
-  - [Tutorial:
-    Spack 101](https://spack-tutorial.readthedocs.io/en/latest/)
-  - [Spack Basic
-    Usage](https://spack.readthedocs.io/en/latest/basic_usage.html)
+- [Tutorial: Spack
+  101](https://spack-tutorial.readthedocs.io/en/latest/)
+- [Spack Basic
+  Usage](https://spack.readthedocs.io/en/latest/basic_usage.html)
 
------
+------------------------------------------------------------------------
 
 ## Usage
 
@@ -51,9 +50,10 @@ spack install <software_name> or <software_name@version> or <software_name@versi
 ```
 
 In general, `@version` for both software and compiler could be removed.
-Spack installs the most stable version by default (see `spack versions
--s <software-name>`). You may find complete list of software that you
-can install by using `spack list` or in Spack online [package
+Spack installs the most stable version by default (see
+`spack versions -s <software-name>`). You may find complete list of
+software that you can install by using `spack list` or in Spack online
+[package
 list](https://spack.readthedocs.io/en/latest/package_list.html). Also.
 we can use `--verbose` option to see more details during the
 installation, `--no-cache` to install a package directly from the
@@ -89,11 +89,11 @@ dependencies of the software.
 
 More details about Spack commands can be found by:
 
-  - `spack --help` or `spack -h` getting help
-  - `spack command -h` print information for a particular command (eg.
-    `spack view -h`)
-  - `spack command subcommand -h` print information for a particular
-    subcommand (eg. `spack view add -h`)
+- `spack --help` or `spack -h` getting help
+- `spack command -h` print information for a particular command (eg.
+  `spack view -h`)
+- `spack command subcommand -h` print information for a particular
+  subcommand (eg. `spack view add -h`)
 
 To see full list of commands visit Spack [Command
 Reference](https://spack.readthedocs.io/en/latest/command_index.html).
@@ -143,9 +143,9 @@ spack config edit compilers
 
 Moreover, we can add specific compiler’s options during the
 installation. Valid flag names are `cflags`, `cxxflags`, `fflags`,
-`cppflags`, `ldflags`, and `ldlibs`. For instance, `spack install
-libdwarf cppflags="-g"` will install `libdwarf` with the `-g` flag
-injected into their compile line.
+`cppflags`, `ldflags`, and `ldlibs`. For instance,
+`spack install libdwarf cppflags="-g"` will install `libdwarf` with the
+`-g` flag injected into their compile line.
 
 ## Architecture specifiers
 
@@ -312,4 +312,4 @@ repository.
 
 ---
 
-Copyright 2018-2023, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
+Copyright, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)

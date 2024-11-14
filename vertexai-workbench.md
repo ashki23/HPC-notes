@@ -1,5 +1,4 @@
 # Vertex AI: workbench
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html)*
 
 Vertex AI is a GCP platform for machine learning (ML) that lets users to
 store ML models, features, and training sets and for running their ML
@@ -11,21 +10,21 @@ to run our workflows on GCP.
 
 ## Create a workbench from GCP console
 
-  - From Vertex AI select Workbench
-  - Select “USER-MANAGED NOTEBOOKS” and press “+ NEW NOTEBOOK”
-  - Select Python 3 and click “ADVANCED OPTIONS” and set the following
-    options and press “CREATE”:
-      - Notebook name: select a name
-      - Region: `us-central1 (Iowa)` and Zone: `us-central1-a`
-  - Machine configuration
-      - Machin type: select resources that you need
-  - Networking:
-      - Select the shared network if available (if any)
-  - Permission:
-      - If you create the workbench only for yourself then, Select
-        “Single user only”. Note that if you select this option other
-        member of your group will not be able to use this workbench
-      - Use any service account that is available (if any)
+- From Vertex AI select Workbench
+- Select “USER-MANAGED NOTEBOOKS” and press “+ NEW NOTEBOOK”
+- Select Python 3 and click “ADVANCED OPTIONS” and set the following
+  options and press “CREATE”:
+  - Notebook name: select a name
+  - Region: `us-central1 (Iowa)` and Zone: `us-central1-a`
+- Machine configuration
+  - Machin type: select resources that you need
+- Networking:
+  - Select the shared network if available (if any)
+- Permission:
+  - If you create the workbench only for yourself then, Select “Single
+    user only”. Note that if you select this option other member of your
+    group will not be able to use this workbench
+  - Use any service account that is available (if any)
 
 **Important Note:** after the instance is created it will cost your team
 as long as it is running, no matter if it is using or not. If you do not
@@ -261,4 +260,4 @@ After the above job is finished you can find the results (here
 
 ---
 
-Copyright 2018-2023, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
+Copyright, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)

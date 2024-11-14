@@ -1,5 +1,4 @@
 # Introduction to high-performance computing (HPC)
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html)*
 
 When dealing with computational problems, various resource and time
 limitations could arise difficulties and disrupt the solutions. If we
@@ -7,10 +6,10 @@ have enough time and resources, we might find the answer. A
 supercomputer or cluster with high level of performance could help us
 tackle the problem. The followings are some great workshops about HPC:
 
-  - [Introduction to High-Performance
-    Computing](https://hpc-carpentry.github.io/hpc-intro/)
-  - [Introduction to using the shell in a High-Performance Computing
-    context](https://hpc-carpentry.github.io/hpc-shell/)
+- [Introduction to High-Performance
+  Computing](https://hpc-carpentry.github.io/hpc-intro/)
+- [Introduction to using the shell in a High-Performance Computing
+  context](https://hpc-carpentry.github.io/hpc-shell/)
 
 Using HPC systems often involves the use of a Shell through a command
 line interface which is necessary for this topic (see
@@ -22,10 +21,10 @@ software on clusters.
 
 Related document:
 
-  - [Introduction to using
-    clusters](https://ashki23.github.io/cluster.html)
+- [Introduction to using
+  clusters](https://ashki23.github.io/cluster.html)
 
------
+------------------------------------------------------------------------
 
 ## Scheduling jobs
 
@@ -86,11 +85,11 @@ email you when the job is ended. Now we can submit the job file by
 the job file status, and use `scancel JOBID` to cancel the job. You may
 find more sbatch options [here](https://slurm.schedmd.com/sbatch.html).
 
-To run a single command, we can use `srun`. For instance, `srun -c 2
-echo "This job will use 2 CPUs."` submits a job and allocates 2 CPUs.
-Also, we can use `srun` to open a program in an interaction mode. For
-example, `srun --pty bash` will open a Bash shell in a computation node
-(not specified).
+To run a single command, we can use `srun`. For instance,
+`srun -c 2 echo "This job will use 2 CPUs."` submits a job and allocates
+2 CPUs. Also, we can use `srun` to open a program in an interaction
+mode. For example, `srun --pty bash` will open a Bash shell in a
+computation node (not specified).
 
 **Note**: in general, when we connect to a cluster we will go to a node,
 called **login node**, which is not meant to do heavy computational
@@ -197,7 +196,7 @@ Note that there are some other tools, such as
 [Snakemake](https://snakemake.readthedocs.io/en/stable/), that could be
 used for workflow management.
 
------
+------------------------------------------------------------------------
 
 ## Transferring files
 
@@ -252,13 +251,12 @@ on the local machine into the `remote-directory` on the remote machine.
 Some important options for `rsync` are (use `rsync -help` to see all
 options):
 
-  - `-r, --recursive`: recurse into directories
-  - `-v, --verbose`: increase verbosity
-  - `-h, --human-readable`: human-readable format
-  - `-z, --compress`: compress file data during the transfer
-  - `-P, --partial --progress`: to keep partially transferred files
-    which should make a subsequent transfer of the rest of the file much
-    faster
+- `-r, --recursive`: recurse into directories
+- `-v, --verbose`: increase verbosity
+- `-h, --human-readable`: human-readable format
+- `-z, --compress`: compress file data during the transfer
+- `-P, --partial --progress`: to keep partially transferred files which
+  should make a subsequent transfer of the rest of the file much faster
 
 For example:
 
@@ -298,7 +296,7 @@ Use `put` to upload and `get` to download a file.
 To get data from web, also, we can use `wget` command to download files
 on the cluster.
 
------
+------------------------------------------------------------------------
 
 ## Software installation
 
@@ -347,4 +345,4 @@ install and update our required software:
 
 ---
 
-Copyright 2018-2023, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
+Copyright, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
