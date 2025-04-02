@@ -8,6 +8,8 @@ AI also provides a workbench environment for testing and developing new
 projects. Here, we discuss how to apply compute engines from Vertex AI
 to run our workflows on GCP.
 
+------------------------------------------------------------------------
+
 ## Create a workbench from GCP console
 
 - From Vertex AI select Workbench
