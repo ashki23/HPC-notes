@@ -127,7 +127,7 @@ repository path:
 
 <p align="center">
 
-<img src="images/gcp-artifact-registery.png" alt="Job Submission" style="width: 90%; border: 0;">
+<img src="images/gcp-artifact-registery.png" alt="GCP Artifact Registry" style="width: 90%; border: 0;">
 </p>
 
 The path should be like:
